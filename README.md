@@ -1,5 +1,5 @@
-# Owner-avatar-Admin-Users-with-Function-Based-Views
-Ex-03-Admin User using function-based views
+
+# Ex-03-Admin User using function-based views
 STUDENT DETAILS :
 
 Name : T.Thrishendra
