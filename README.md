@@ -1,30 +1,31 @@
 # Owner-avatar-Admin-Users-with-Function-Based-Views
 Ex-03-Admin User using function-based views
 STUDENT DETAILS :
-Name : T.Thrishendrs
+
+Name : T.Thrishendra
 
 Department : AIDS
 
 Reference No : 23003501
 
-AIM :
+# AIM : 
 Display Admin User's data using function based views in django framework.
-
-STEP 1 : Create a Django Project
+# STEP 1 : Create a Django Project
 Create django project using the following commands:
 
 Django-admin startproject mymodels
 
-STEP 2 : Create a Django App
+# STEP 2 : Create a Django App
 Create django app using the following command
 
 Python manage.py startapp myapp
 
-STEP 3 : Define User Creation View
+# STEP 3 : Define User Creation View
+
 In your app's views.py file (myapp/views.py), define a view function to create the users with the specified attributes.
 
 To create a Django website with five users (two staff users, including an admin, and three non-staff users), set email, first name, and last name for all users, you can use the following Python view function:
-
+```
 from django.contrib.auth.models import User
 from django.shortcuts import render
 
@@ -63,9 +64,11 @@ def create_users(request):
 
     return render(request, 'myapp/user_creation_success.html')
 
-STEP 4 : Create Templates
-Create a template directory within your app (myapp/templates) if it doesn't already exist. Inside this directory, create a template named 'user_creation_success.html' to display a success message. user_creation_success.html :
-
+```
+# STEP 4 : Create Templates
+Create a template directory within your app (myapp/templates) if it doesn't already exist. Inside this directory, create a template named 'user_creation_success.html' to display a success message.
+user_creation_success.html : 
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,9 +81,11 @@ Create a template directory within your app (myapp/templates) if it doesn't alre
     <h1>Admin User Created Successfully</h1>
 </body>
 </html>
-STEP 5 : Define URL pattern
-In your app's urls.py file (myapp/urls.py), define a URL pattern to route to the create_users view.
+```
 
+ # STEP 5 : Define URL pattern
+ In your app's urls.py file (myapp/urls.py), define a URL pattern to route to the create_users view.
+```
 """mypro URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -107,19 +112,26 @@ urlpatterns = [
     path('create_users/', views.create_users, name='create_users'),
 ]
 
-STEP 6: Apply Migrations
-Apply migrations to create the necessary database tables for the User model. python manage.py makemigrations python manage.py migrate
+```
 
-STEP 7: Run the Development Server
-Start the development server to run your Django application. python manage.py runserver
+# STEP 6: Apply Migrations
+Apply migrations to create the necessary database tables for the User model.
+python manage.py makemigrations
+python manage.py migrate
 
-Step 9: Verify the Users
+# STEP 7: Run the Development Server
+Start the development server to run your Django application.
+python manage.py runserver
+
+# Step 9: Verify the Users
 You can verify that the users have been created with the specified attributes by checking the Django admin interface.
 
-Visit http://localhost:8000/admin/
+Visit http://localhost:8000/admin/ 
+
 
 Note: Don't forget to add myapp in the settings.py file
 
+```
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -129,14 +141,18 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "myapp",
 ]
-OUTPUT :
+```
+# OUTPUT : 
 User Profiles creation successful:
 
-image
+
+![image](https://github.com/SANTHAN-2006/ODD2023-WT-Ex-04-Django-Models/assets/80164014/a0f7939e-0d34-467a-a75b-3f675e430d95)
 
 Verifying the Admin Users :
 
-image
 
-RESULT :
+![image](https://github.com/SANTHAN-2006/ODD2023-WT-Ex-04-Django-Models/assets/80164014/cc0723dc-23b5-42cd-ba94-96a882d7c79d)
+
+# RESULT : 
 Created a Django website with five users. Two users are to be staff users (including admin) and the other three users are non-staff users successfully
+
