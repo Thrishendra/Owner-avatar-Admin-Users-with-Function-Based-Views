@@ -27,43 +27,41 @@ In your app's views.py file (myapp/views.py), define a view function to create t
 To create a Django website with five users (two staff users, including an admin, and three non-staff users), set email, first name, and last name for all users, you can use the following Python view function:
 ```
 from django.contrib.auth.models import User
+from django.views import View
 from django.shortcuts import render
-
 def create_users(request):
-    # List of users to create
-    users_to_create = [
-        {'username': 'admin', 'password': 'adminpass', 'is_staff': True, 'is_superuser': True, 'email': 'admin@example.com', 'first_name': 'Admin', 'last_name': 'User'},
-        {'username': 'staff1', 'password': 'staff1pass', 'is_staff': True, 'email': 'staff1@example.com', 'first_name': 'Staff', 'last_name': 'User1'},
-        {'username': 'user1', 'password': 'user1pass', 'email': 'user1@example.com', 'first_name': 'User', 'last_name': 'One'},
-        {'username': 'user2', 'password': 'user2pass', 'email': 'user2@example.com', 'first_name': 'User', 'last_name': 'Two'},
-        {'username': 'user3', 'password': 'user3pass', 'email': 'user3@example.com', 'first_name': 'User', 'last_name': 'Three'},
-    ]
-
-    # Loop through users and create them
-    for user_data in users_to_create:
-        username = user_data['username']
-        password = user_data['password']
-
-        # Check if the user already exists
-        if not User.objects.filter(username=username).exists():
-            # Create user
-            user = User.objects.create_user(username=username, password=password)
-
-            # Set additional attributes
-            user.is_staff = user_data.get('is_staff', False)
-            user.is_superuser = user_data.get('is_superuser', False)
-            user.email = user_data.get('email', '')
-            user.first_name = user_data.get('first_name', '')
-            user.last_name = user_data.get('last_name', '')
-
-            # Save the user
-            user.save()
-            print(f"User created with username: {username}")
-        else:
-            print(f"User with username {username} already exists.")
-
-    return render(request, 'myapp/user_creation_success.html')
-
+# Create staff users (including admin)
+admin_user = User.objects.create_user(username='admin', password="adminpass')
+admin_user.is_staff = True
+admin_user.is_superuser = True
+admin_user.email = 'admin@example.com
+admin_user.first_name = 'Admin'
+admin_user.last_name = 'User'
+admin_user.save()
+staff_user1 = User.objects.create_user(username='staff1', password='staff1pass*)
+staff_user1.is_staff = True
+staff_user1.email = 'staffl@example.com'
+staff _user1.first_name = 'Staff'
+staff_user1.last_name = 'User1'
+staff_user1.save()
+# Create non-staff users
+user1 = User,objects,create_user(username='userl', password="useripass')
+useri.email = 'userl@example,com
+user1.first_name = 'User'
+user1,last_name s 'One'
+user1.save
+user2 = User.objects.create_user(username='user2', password='user2pass')
+user2.email = `user2@example.com
+user2.first_name = 'User
+user2.last name = 'TWO'
+user2.save()
+user3 = User.objects.create_user(username='user3', password='user3pass')
+user3.email = 'user3@example.com'
+user3.first_name = 'User'
+user3.last_name = 'Three'
+user3.save()
+return render(request,
+myapp/user_creation_success.html')
 ```
 # STEP 4 : Create Templates
 Create a template directory within your app (myapp/templates) if it doesn't already exist. Inside this directory, create a template named 'user_creation_success.html' to display a success message.
@@ -146,12 +144,12 @@ INSTALLED_APPS = [
 User Profiles creation successful:
 
 
-![image](https://github.com/SANTHAN-2006/ODD2023-WT-Ex-04-Django-Models/assets/80164014/a0f7939e-0d34-467a-a75b-3f675e430d95)
+![image](https://github.com/Thrishendra/Owner-avatar-Admin-Users-with-Function-Based-Views/assets/145742464/122b751f-1bc0-4a1f-967a-98664bce58ba)
 
 Verifying the Admin Users :
 
 
-![image](https://github.com/SANTHAN-2006/ODD2023-WT-Ex-04-Django-Models/assets/80164014/cc0723dc-23b5-42cd-ba94-96a882d7c79d)
+![image](https://github.com/Thrishendra/Owner-avatar-Admin-Users-with-Function-Based-Views/assets/145742464/57e651b6-f5da-4331-80fe-10aed848c79d)
 
 # RESULT : 
 Created a Django website with five users. Two users are to be staff users (including admin) and the other three users are non-staff users successfully
